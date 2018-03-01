@@ -1,0 +1,109 @@
+<widget id="Sigma.widget.Sigma" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
+    <name>Sigma</name>
+    <description>Dummy widget</description>
+    <icon/>
+    <properties>
+        <!-- DATA SOURCE -->
+        <property key="nodeEntity" type="entity">
+            <caption>Node Entity</caption>
+            <category>Data Source</category>
+            <description></description>
+        </property>
+        <property key="edgeEntity" type="entity">
+            <caption>Edge Entity</caption>
+            <category>Data Source</category>
+            <description></description>
+        </property>
+        <property key="nodeMicroflow" type="microflow" required="true">
+            <caption>Node Microflow</caption>
+            <category>Data Source</category>
+            <description></description>
+            <returnType type="Object" isList="true" entityProperty="nodeEntity" />
+        </property>
+        <property key="edgeMicroflow" type="microflow" required="true">
+            <caption>Edge Microflow</caption>
+            <category>Data Source</category>
+            <description></description>
+            <returnType type="Object" isList="true" entityProperty="edgeEntity" />
+        </property>
+        <!-- NODES -->
+        <property key="nodeLabelAttr" type="attribute" entityProperty="nodeEntity" required="true" isPath="optional" pathType="reference">
+            <caption>Node Label attribute</caption>
+            <category>Nodes</category>
+            <description></description>
+            <attributeTypes>
+                 <attributeType name="String" />
+            </attributeTypes>
+        </property>
+        <property key="nodeXAttr" type="attribute" entityProperty="nodeEntity" required="true" isPath="optional" pathType="reference">
+            <caption>Node X attribute</caption>
+            <category>Nodes</category>
+            <description></description>
+            <attributeTypes>
+                 <attributeType name="Decimal" />
+            </attributeTypes>
+        </property>
+        <property key="nodeYAttr" type="attribute" entityProperty="nodeEntity" required="true" isPath="optional" pathType="reference">
+            <caption>Node Y attribute</caption>
+            <category>Nodes</category>
+            <description></description>
+            <attributeTypes>
+                 <attributeType name="Decimal" />
+            </attributeTypes>
+        </property>
+        <property key="nodeSizeAttr" type="attribute" entityProperty="nodeEntity" required="false" isPath="optional" pathType="reference">
+            <caption>Node Size attribute</caption>
+            <category>Nodes</category>
+            <description></description>
+            <attributeTypes>
+                 <attributeType name="Integer" />
+            </attributeTypes>
+        </property>
+        <property key="nodeColorAttr" type="attribute" entityProperty="nodeEntity" required="false" isPath="optional" pathType="reference">
+            <caption>Node Color attribute</caption>
+            <category>Nodes</category>
+            <description>Should contain a valid color hex (e.g. '#FF0000')</description>
+            <attributeTypes>
+                 <attributeType name="String" />
+            </attributeTypes>
+        </property>
+        <!-- EDGES -->
+        <property key="edgeSourceNodeEntity" type="entity" required="true" isPath="yes" pathType="reference" entityProperty="edgeEntity">
+            <caption>Edge Source Node</caption>
+            <category>Edges</category>
+            <description></description>
+        </property>
+        <property key="edgeTargetNodeEntity" type="entity" required="true" isPath="yes" pathType="reference" entityProperty="edgeEntity">
+            <caption>Edge Target Node</caption>
+            <category>Edges</category>
+            <description></description>
+        </property>
+        <property key="edgeSizeAttr" type="attribute" entityProperty="edgeEntity" required="false" isPath="optional" pathType="reference">
+            <caption>Edge Size attribute</caption>
+            <category>Edges</category>
+            <description></description>
+            <attributeTypes>
+                 <attributeType name="Integer" />
+            </attributeTypes>
+        </property>
+        <property key="edgeColorAttr" type="attribute" entityProperty="edgeEntity" required="false" isPath="optional" pathType="reference">
+            <caption>Edge Color attribute</caption>
+            <category>Edges</category>
+            <description>Should contain a valid color hex (e.g. '#FF0000')</description>
+            <attributeTypes>
+                 <attributeType name="String" />
+            </attributeTypes>
+        </property>
+        <!-- EXTRA -->
+        <property key="draggableNodes" type="boolean" defaultValue="false">
+            <caption>Editable</caption>
+            <category>Extra</category>
+            <description>Should you be able to edit the nodes by dragging them?</description>
+        </property>
+        <property key="sigmaOptionsStr" type="string" required="false" defaultValue="{}" multiline="true">
+            <caption>Sigma options</caption>
+            <category>Extra</category>
+            <description>Options JSON. Make sure this is a valid JSON.</description>
+        </property>
+    </properties>
+</widget>
